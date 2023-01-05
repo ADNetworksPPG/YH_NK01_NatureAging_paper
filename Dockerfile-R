@@ -1,0 +1,10 @@
+FROM satijalab/seurat:4.0.5
+
+#install specific versions of R packages
+RUN R -e 'install.packages("remotes")'
+RUN R -e 'library("remotes");install_version("ggplot2", "3.3.5")'
+RUN R -e 'library("remotes");install_version("dplyr", "1.0.7")'
+RUN R -e 'library("remotes");install_version("gdata", "2.18.0")'
+RUN R -e 'library("remotes");install_version("harmony", "0.1.0")'
+RUN R -e 'BiocManager::install(version = "3.14",ask = FALSE)'
+RUN R -e 'BiocManager::install("glmGamPoi", version = "3.14")'   
